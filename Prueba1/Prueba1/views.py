@@ -1,15 +1,24 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+
+class Persona(object):
+    def __init__(self, nombre, apellido):
+        self.nombre = nombre 
+        self.apellido = apellido
+    
+
 #A cada función dentro del archivo views se le denomina vistas 
 def saludo(request): 
 
-    nombre = "Juan"
-    apellido = "Perez" 
+    persona1 = Persona("Felipe", "Lopez")
+    #nombre = "Juan"
+    #apellido = "Perez" 
+    fecha_actual = datetime.datetime.now()
     doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
     template = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context({"nombre_persona": nombre, "apellido_persona": apellido})
+    ctx = Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual})
     dom = template.render(ctx)
     return HttpResponse(dom)
 
