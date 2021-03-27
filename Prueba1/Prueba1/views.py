@@ -3,10 +3,13 @@ import datetime
 from django.template import Template, Context
 #A cada función dentro del archivo views se le denomina vistas 
 def saludo(request): 
+
+    nombre = "Juan"
+    apellido = "Perez" 
     doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
     template = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context()
+    ctx = Context({"nombre_persona": nombre, "apellido_persona": apellido})
     dom = template.render(ctx)
     return HttpResponse(dom)
 
