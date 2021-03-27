@@ -22,3 +22,15 @@ def fechaHora(request):
             </body>
         <html>""" % fecha_actual
     return HttpResponse(dom)
+
+def CalculaEdad(request, agno, edad):
+    
+    edadActual = int(edad)
+    tiempo = int(agno) - 2021
+    edad = tiempo + edadActual
+    dom="""<html>
+            <body>
+                <h3> En el año %s  tendras %s años </h3>
+            </body>
+        <html>""" %(agno ,edad)
+    return HttpResponse(dom)

@@ -15,11 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Prueba1.views import saludo, despedida, fechaHora
+from Prueba1.views import saludo, despedida, fechaHora, CalculaEdad
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/', saludo),
     url(r'^bye/', despedida),
     url(r'^fecha/', fechaHora),
+    url(r'^edad/(?P<agno>.+)/(?P<edad>.+)/$', CalculaEdad),
 ]
