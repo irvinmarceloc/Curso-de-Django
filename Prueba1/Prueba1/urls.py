@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from Prueba1.views import saludo
-from Prueba1.views import despedida
+from Prueba1.views import saludo, despedida, fechaHora
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^hello/', saludo),
-    url(r'^bye/', despedida)
+    url(r'^bye/', despedida),
+    url(r'^fecha/', fechaHora),
 ]
