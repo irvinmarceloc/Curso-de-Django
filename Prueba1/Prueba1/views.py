@@ -1,20 +1,20 @@
 from django.http import HttpResponse
 import datetime
-
+from django.template import Template, Context
 #A cada función dentro del archivo views se le denomina vistas 
 def saludo(request): 
-    dom="""<html>
-            <body>
-                <h1> Hola mundo, mi primera pagina con Django  </h1>
-            </body>
-        <html>""" 
+    doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
+    template = Template(doc_externo.read())
+    doc_externo.close()
+    ctx = Context()
+    dom = template.render(ctx)
     return HttpResponse(dom)
 
 #A cada función dentro del archivo views se le denomina vistas 
 def despedida(request):
     return HttpResponse("Hasta luego mundo")
 
-def fechaHora(request):
+def fecha_hora(request):
     fecha_actual = datetime.datetime.now()
     dom="""<html>
             <body>
@@ -23,7 +23,7 @@ def fechaHora(request):
         <html>""" % fecha_actual
     return HttpResponse(dom)
 
-def CalculaEdad(request, agno, edad):
+def calcula_edad(request, agno, edad):
     
     edadActual = int(edad)
     tiempo = int(agno) - 2021
