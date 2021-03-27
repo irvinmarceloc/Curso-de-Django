@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^hello/', saludo),
     url(r'^bye/', despedida),
     url(r'^fecha/', fechaHora),
-    url(r'^edad/(?P<agno>.+)/(?P<edad>.+)/$', CalculaEdad),
+    url(r'^edad/(?P<agno>.+)/(?P<edad>.+)/$', CalculaEdad)
 ]
