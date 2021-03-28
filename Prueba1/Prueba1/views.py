@@ -12,7 +12,7 @@ class Persona(object):
 def saludo(request): 
 
     persona1 = Persona("Felipe", "Lopez")
-    temas  = []
+    temas  = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue"]
     #nombre = "Juan"
     #apellido = "Perez" 
     fecha_actual = datetime.datetime.now()
