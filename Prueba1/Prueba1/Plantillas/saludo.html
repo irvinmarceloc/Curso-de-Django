@@ -1,13 +1,13 @@
 <html>
     <body>
-        {%include "superior/nav.html" %}
+        {%extends "base.html" %}
         <h2 style="color : red"> Hola mundo, mi primera plantilla con Django  </h2>
         <h3 style="color : blue"  >El que visita es: {{nombre_persona}} {{apellido_persona}} a las {{fecha_hora_actual.day}} / {{fecha_hora_actual.month}} / {{fecha_hora_actual.year}}</h3>
         
-        {%if nombre_persona == 'Profesor Juan'%}
+        {%if nombre_persona == 'Juan'%}
             <p>El curso lo imparte el profesor titular</p>
         {%else%}
-            <p>El curso lo imparte otro profesor</p>
+            <p>El curso lo imparte el profesor suplente</p>
         {%endif%}
 
         <p><strong>Temas del curso</strong></p>
