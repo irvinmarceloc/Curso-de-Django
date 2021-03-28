@@ -12,13 +12,14 @@ class Persona(object):
 def saludo(request): 
 
     persona1 = Persona("Felipe", "Lopez")
+    temas  = []
     #nombre = "Juan"
     #apellido = "Perez" 
     fecha_actual = datetime.datetime.now()
     doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
     template = Template(doc_externo.read())
     doc_externo.close()
-    ctx = Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual})
+    ctx = Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
     dom = template.render(ctx)
     return HttpResponse(dom)
 
