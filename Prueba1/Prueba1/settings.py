@@ -54,7 +54,7 @@ ROOT_URLCONF = 'Prueba1.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ["/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

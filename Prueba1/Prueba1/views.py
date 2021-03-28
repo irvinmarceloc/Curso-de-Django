@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
-
+from django.template import Template, Context, loader, 
+from django.shortcuts import render 
 class Persona(object):
     def __init__(self, nombre, apellido):
         self.nombre = nombre 
@@ -16,12 +16,18 @@ def saludo(request):
     #nombre = "Juan"
     #apellido = "Perez" 
     fecha_actual = datetime.datetime.now()
-    doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
-    template = Template(doc_externo.read())
-    doc_externo.close()
-    ctx = Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
-    dom = template.render(ctx)
-    return HttpResponse(dom)
+    #doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
+    
+    #doc_externo = loader.get_template('saludo.html')
+
+
+    #template = Template(doc_externo.read())
+    #Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
+    ctx = {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas}
+    #dom = doc_externo.render(ctx)
+    #return HttpResponse(dom)
+    return render(request, "saludo.html", ctx)
+
 
 #A cada función dentro del archivo views se le denomina vistas 
 def despedida(request):
