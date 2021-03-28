@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context, loader, 
+from django.template import Template, Context, loader
 from django.shortcuts import render 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -23,10 +23,10 @@ def saludo(request):
 
     #template = Template(doc_externo.read())
     #Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
-    ctx = {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas}
+    #ctx = {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas}
     #dom = doc_externo.render(ctx)
     #return HttpResponse(dom)
-    return render(request, "saludo.html", ctx)
+    return render(request, "saludo.html", {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
 
 
 #A cada función dentro del archivo views se le denomina vistas 
