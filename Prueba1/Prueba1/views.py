@@ -11,21 +11,9 @@ class Persona(object):
 #A cada función dentro del archivo views se le denomina vistas 
 def saludo(request): 
 
-    persona1 = Persona("Felipe", "Lopez")
+    persona1 = Persona("Nombre y ", "Apellido importado desde una clase")
     temas  = ["Plantillas", "Modelos", "Formularios", "Vistas", "Despliegue"]
-    #nombre = "Juan"
-    #apellido = "Perez" 
     fecha_actual = datetime.datetime.now()
-    #doc_externo= open('/home/z49/Documentos/Curso Django/Prueba1/Prueba1/Plantillas/saludo.html')
-    
-    #doc_externo = loader.get_template('saludo.html')
-
-
-    #template = Template(doc_externo.read())
-    #Context({"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
-    #ctx = {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas}
-    #dom = doc_externo.render(ctx)
-    #return HttpResponse(dom)
     return render(request, "saludo.html", {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
 
 
@@ -54,6 +42,6 @@ def calcula_edad(request, agno, edad):
         <html>""" %(agno ,edad)
     return HttpResponse(dom)
 
-def CursoC(request):
+def CursoMint(request):
     fecha_actual = datetime.datetime.now()
-    return render(request,"CursoC.html", {"fecha_hora": fecha_actual})
+    return render(request,"CursoMint.html", {"fecha_hora": fecha_actual})
