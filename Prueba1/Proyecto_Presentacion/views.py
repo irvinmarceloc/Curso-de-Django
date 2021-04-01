@@ -2,6 +2,7 @@ from django.http import HttpResponse
 import datetime
 from django.template import Template, Context, loader
 from django.shortcuts import render 
+
 class Persona(object):
     def __init__(self, nombre, apellido):
         self.nombre = nombre 
@@ -16,19 +17,12 @@ def saludo(request):
     fecha_actual = datetime.datetime.now()
     return render(request, "saludo.html", {"nombre_persona": persona1.nombre, "apellido_persona": persona1.apellido, "fecha_hora_actual": fecha_actual, "temas": temas})
 
-
-#A cada función dentro del archivo views se le denomina vistas 
 def despedida(request):
     return HttpResponse("Hasta luego mundo")
 
 def fecha_hora(request):
     fecha_actual = datetime.datetime.now()
-    dom="""<html>
-            <body>
-                <h3> Fecha y hora actuales %s </h3>
-            </body>
-        <html>""" % fecha_actual
-    return HttpResponse(dom)
+    return render(request,"fecha.html", {"fecha_hora": fecha_actual})
 
 def calcula_edad(request, agno, edad):
     
