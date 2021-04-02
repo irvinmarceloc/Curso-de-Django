@@ -8,7 +8,7 @@ class Clientes(models.Model):
     email=models.EmailField()
     tfno=models.CharField(max_length=7)
 
-class Atriculos(models.Model):
+class Articulos(models.Model):
     nombre=models.CharField(max_length=30)
     seccion=models.CharField(max_length=20)
     precio=models.IntegerField()
