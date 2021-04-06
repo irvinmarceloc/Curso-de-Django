@@ -4,9 +4,9 @@ from django.db import models
 
 class Clientes(models.Model):
     nombre=models.CharField(max_length=30)
-    direccion=models.CharField(max_length=50)
-    email=models.EmailField()
-    tfno=models.CharField(max_length=7)
+    direccion=models.CharField(max_length=50, verbose_name="La dirección")
+    email=models.EmailField("Correo electrónico",blank=True, null=True)
+    tfno=models.CharField(max_length=7, verbose_name="Telefono ")
 
 class Articulos(models.Model):
     nombre=models.CharField(max_length=30)
