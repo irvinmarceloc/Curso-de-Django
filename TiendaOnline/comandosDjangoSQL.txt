@@ -1,3 +1,11 @@
 Para hacer consultas con filtros
 from gestionPedidos.models import Articulos
 Articulos.objects.filter(seccion='deportes')
+Articulos.objects.filter(nombre='mesa',seccion='decoracion')
+Articulos.objects.filter(precio=90)
+#Mayor que
+Articulos.objects.filter(precio__gte=90)
+#Menor que
+Articulos.objects.filter(precio__lte=90)
+#Rango
+Articulos.objects.filter(precio__range=(10,150))
