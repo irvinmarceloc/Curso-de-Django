@@ -1,0 +1,3 @@
+Para hacer consultas con filtros
+from gestionPedidos.models import Articulos
+Articulos.objects.filter(seccion='deportes')
