@@ -9,3 +9,7 @@ Articulos.objects.filter(precio__gte=90)
 Articulos.objects.filter(precio__lte=90)
 #Rango
 Articulos.objects.filter(precio__range=(10,150))
+#Ordenado ascendente
+Articulos.objects.filter(precio__gte=50).order_by('precio')
+#Ordenado descendente
+Articulos.objects.filter(precio__gte=50).order_by('-precio')
