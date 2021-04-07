@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^busqueda_productos/', views.busqueda_productos),
     url(r'^buscar/', views.buscar),
+    url(r'^contacto/', views.contacto),
 ]
