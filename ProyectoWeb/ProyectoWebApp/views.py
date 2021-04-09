@@ -1,12 +1,13 @@
 from django.shortcuts import render, HttpResponse
+from servicios.models import Servicio
 
 def home(request):
 
     return render(request, 'ProyectoWebApp/home.html')
 
 def servicios(request):
-
-    return render(request, 'ProyectoWebApp/servicios.html')
+    servicios = Servicio.objects.all()
+    return render(request, 'ProyectoWebApp/servicios.html', {"servicios":servicios})
 
 def tienda(request):
 
