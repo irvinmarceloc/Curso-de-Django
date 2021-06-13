@@ -22,4 +22,9 @@
             </div>
         </section>
     {% endfor %}
+        <section>
+            <div style="width: 75%; background-color: yellowgreen; margin: auto; color: rgb(34, 34, 33);">
+                Categorias: {%for post in posts%}  {%for categoria in post.categorias.all%} {{categoria.nombre}}&nbsp;&nbsp;&nbsp;  {%endfor%} {%endfor%}
+            </div>
+        </section>
 {% endblock %}
